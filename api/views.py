@@ -23,7 +23,8 @@ def predict_diabetictype(request):
         plasma_r = request.data.get('plasma_r',None)
         plasma_f = request.data.get('plasma_f',None)
         hbA1c = request.data.get('hbA1c',None)
-        if age != None and bs_fast != None and bs_pp != None and plasma_r != None and plasma_f != None and hbA1c != None:
+        fields = [age,bs_fast,bs_pp,plasma_r,plasma_f,hbA1c]
+        if not None in fields:
             #Datapreprocessing Convert the values to float
             age = float(age)
             bs_fast = float(bs_fast)
